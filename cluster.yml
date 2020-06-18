@@ -1,0 +1,10 @@
+# If you intened to deploy Kubernetes in an air-gapped environment,
+# please consult the documentation on how to configure custom RKE images.
+nodes:
+- address: whizz.josephp.tech
+  user: joseph
+  role:
+  - controlplane
+  - worker
+  - etcd
+kubernetes_version: v1.17.6-rancher2-1

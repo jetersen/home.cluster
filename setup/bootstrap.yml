@@ -1,0 +1,5 @@
+---
+- hosts: whizz.josephp.tech
+  roles:
+  - prepare-os
+  - prepare-docker

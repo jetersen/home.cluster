@@ -1,0 +1,97 @@
+---
+- name: Install packages that allow apt to be used over HTTPS
+  apt:
+    update_cache: yes
+    pkg:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg-agent
+    - software-properties-common
+
+- name: Add the br_netfilter module
+  modprobe:
+    name: br_netfilter
+    state: present
+
+- name: Load kernel modules for RKE
+  modprobe:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  - br_netfilter
+  - ip6_udp_tunnel
+  - ip_set
+  - ip_set_hash_ip
+  - ip_set_hash_net
+  - iptable_filter
+  - iptable_nat
+  - iptable_mangle
+  - iptable_raw
+  - nf_conntrack_netlink
+  - nf_nat
+  - veth
+  - vxlan
+  - xt_addrtype
+  - xt_conntrack
+  - xt_comment
+  - xt_mark
+  - xt_multiport
+  - xt_nat
+  - xt_recent
+  - xt_set
+  - xt_statistic
+  - xt_tcpudp
+
+- name: Persist kernel modules for rke
+  copy:
+    content: |
+      br_netfilter
+      ip6_udp_tunnel
+      ip_set
+      ip_set_hash_ip
+      ip_set_hash_net
+      iptable_filter
+      iptable_nat
+      iptable_mangle
+      iptable_raw
+      nf_conntrack_netlink
+      nf_nat
+      veth
+      vxlan
+      xt_addrtype
+      xt_conntrack
+      xt_comment
+      xt_mark
+      xt_multiport
+      xt_nat
+      xt_recent
+      xt_set
+      xt_statistic
+      xt_tcpudp
+    dest: /etc/modules-load.d/rke-modules.conf
+
+- name: Modify sysctl entries
+  sysctl:
+    name: '{{ item.key }}'
+    value: '{{ item.value }}'
+    sysctl_set: yes
+    state: present
+    reload: yes
+    sysctl_file: /etc/sysctl.d/k8s.conf
+  with_items:
+    - {key: net.bridge.bridge-nf-call-ip6tables, value: 1}
+    - {key: net.bridge.bridge-nf-call-iptables,  value: 1}
+    - {key: net.ipv4.ip_forward,  value: 1}
+
+- name: SSH daemon should allow TCP forwarding
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: AllowTcpForwarding yes
+  register: ssh_daemon_tcp_forwarding
+
+- name: Restart SSH daemon
+  when: ssh_daemon_tcp_forwarding.changed
+  systemd:
+    state: restarted
+    name: ssh
