@@ -9,11 +9,6 @@
     - gnupg-agent
     - software-properties-common
 
-- name: Add the br_netfilter module
-  modprobe:
-    name: br_netfilter
-    state: present
-
 - name: Load kernel modules for RKE
   modprobe:
     name: "{{ item }}"
