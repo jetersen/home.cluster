@@ -5,4 +5,6 @@ nodes:
   - controlplane
   - worker
   - etcd
+ingress:
+    provider: none
 kubernetes_version: v1.17.6-rancher2-1
