@@ -1,0 +1,8 @@
+acme:
+  id: "letsencrypt-prod"
+  email: ""
+  server: "https://acme-v02.api.letsencrypt.org/directory"
+
+  # Secrets used for dns01 settings
+  secretName: 'acme_test_secret'
+  secretKey: 'password'
