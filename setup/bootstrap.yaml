@@ -1,5 +1,5 @@
 ---
-- hosts: whizz.josephp.tech
+- hosts: whizz.lan.jetersen.dev
   roles:
   - prepare-os
   - prepare-docker
