@@ -1,0 +1,20 @@
+namespace: metallb-system
+
+bases:
+- https://github.com/metallb/metallb/manifests?ref=v0.9.3
+
+
+configMapGenerator:
+- name: config
+  files:
+  - config=config.yaml
+
+# memberlist "secret" is only used for faster dead node detection.
+# So not true worried about having this "secret" in the repo
+secretGenerator:
+- name: memberlist
+  files:
+  - secretkey=memberlist.randomness
+
+generatorOptions:
+  disableNameSuffixHash: true
