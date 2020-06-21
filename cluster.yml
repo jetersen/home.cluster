@@ -1,5 +1,5 @@
 nodes:
-- address: whizz.josephp.tech
+- address: whizz.lan.jetersen.dev
   user: joseph
   role:
   - controlplane
