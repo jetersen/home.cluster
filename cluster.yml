@@ -5,6 +5,14 @@ nodes:
   - controlplane
   - worker
   - etcd
+
 ingress:
-    provider: none
+  provider: none
+
+dns:
+  provider: coredns
+  upstreamnameservers:
+  - 192.168.1.1
+  - 1.1.1.1
+
 kubernetes_version: v1.18.3-rancher2-2
