@@ -1,0 +1,9 @@
+apiVersion: v2
+appVersion: 1.0.0
+description: DynDNS with help from External-DNS to update DNS record
+name: dyndns
+version: 1.0.0
+home: https://github.com/jetersen/home.cluster
+maintainers:
+- name: jetersen
+  url: https://github.com/jetersen

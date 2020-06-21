@@ -1,0 +1,24 @@
+kind: CronJob
+apiVersion: batch/v1beta1
+metadata:
+  name: dyndns-update
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: dyndns-update
+          containers:
+          - name: dyndns-update
+            image: bitnami/kubectl:1.18
+            command:
+            - /bin/sh
+            - -c
+            - IP=$(curl -s --show-error --fail https://api.ipify.org) && kubectl -n ${NAMESPACE} patch service dyndns-update -p '{"spec":{"type":"ExternalName","externalName":"'${IP}'"}}'
+            env:
+              - name: NAMESPACE
+                valueFrom:
+                  fieldRef:
+                    fieldPath: metadata.namespace
+          restartPolicy: Never

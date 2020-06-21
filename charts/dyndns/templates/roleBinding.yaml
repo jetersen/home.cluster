@@ -1,0 +1,12 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: dyndns-update
+subjects:
+- kind: ServiceAccount
+  name: dyndns-update
+  namespace: {{ .Release.Namespace }}
+roleRef:
+  kind: Role
+  name: dyndns-update
+  apiGroup: ""

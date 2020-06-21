@@ -1,0 +1,12 @@
+domainFilters:
+- jetersen.dev
+interval: 1h
+policy: sync
+rbac:
+  create: true
+sources:
+- service
+- ingress
+triggerLoopOnEvent: true
+txtOwnerId: whizz-k8s
+txtPrefix: "_owner."
