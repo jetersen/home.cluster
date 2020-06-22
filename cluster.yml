@@ -15,4 +15,9 @@ dns:
   - 192.168.1.1
   - 1.1.1.1
 
+services:
+  kubelet:
+    extra_binds:
+    - /var/openebs/local:/var/openebs/local
+
 kubernetes_version: v1.18.3-rancher2-2
