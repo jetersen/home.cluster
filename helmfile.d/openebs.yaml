@@ -1,0 +1,14 @@
+repositories:
+- name: openebs
+  url: https://openebs.github.io/charts
+releases:
+- name: openebs
+  chart: openebs/openebs
+  namespace: openebs
+  createNamespace: true
+  version: 1.11.1
+  wait: true
+  timeout: 300
+  atomic: true
+  values:
+  - ../config/openebs.yaml

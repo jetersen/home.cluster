@@ -1,0 +1,8 @@
+provisioner:
+  enabled: false
+snapshotOperator:
+  enabled: true
+analytics:
+  enabled: false
+defaultStorageConfig:
+  enabled: true
