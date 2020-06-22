@@ -1,0 +1,24 @@
+repositories:
+- name: loki
+  url: https://grafana.github.io/loki/charts
+releases:
+- name: loki
+  chart: loki/loki
+  namespace: loki
+  createNamespace: true
+  version: 0.30.0
+  wait: true
+  timeout: 300
+  atomic: true
+  values:
+  - ../config/loki.yaml
+
+- name: promtail
+  chart: loki/promtail
+  namespace: loki
+  version: 0.23.1
+  wait: true
+  timeout: 300
+  atomic: true
+  values:
+  - ../config/promtail.yaml
