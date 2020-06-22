@@ -3,7 +3,8 @@ apiVersion: v1
 metadata:
   name: dyndns-update
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: {{ $.Values.hostname }}
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.hostname }}
+    {{- toYaml .Values.annotations | nindent 4 }}
 spec:
   type: ExternalName
   externalName: 0.0.0.0
