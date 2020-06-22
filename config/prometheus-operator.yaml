@@ -60,7 +60,7 @@ grafana:
     url: http://loki.loki:3100/
     version: 1
     jsonData:
-      maxLines: 10000
+      maxLines: 5000
 alertmanager:
   ingress:
     enabled: true
