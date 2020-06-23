@@ -11,4 +11,3 @@ persistence:
   accessModes:
   - ReadWriteOnce
   size: 30Gi
-  storageClassName: default
