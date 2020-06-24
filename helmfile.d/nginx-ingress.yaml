@@ -4,7 +4,8 @@ repositories:
 releases:
 - name: private-nginx-ingress
   chart: ingress-nginx/ingress-nginx
-  namespace: kube-system
+  namespace: nginx-ingress
+  createNamespace: true
   version: 2.7.0
   wait: true
   timeout: 300
