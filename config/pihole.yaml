@@ -1,0 +1,24 @@
+persistentVolumeClaim:
+  enabled: true
+
+DNS1: "192.168.1.1"
+DNS2: "1.1.1.1"
+
+serviceTCP:
+  loadBalancerIP: 192.168.0.53
+  annotations:
+    metallb.universe.tf/allow-shared-ip: pihole-svc
+  type: LoadBalancer
+
+serviceUDP:
+  loadBalancerIP: 192.168.0.53
+  annotations:
+    metallb.universe.tf/allow-shared-ip: pihole-svc
+  type: LoadBalancer
+
+dnsmasq:
+  upstreamServers:
+  - server=/lan.jetersen.dev/192.168.1.1
+  customDnsEntries:
+  - address=/pi.hole/192.168.0.53
+  - address=/lan.jetersen.dev/192.168.1.1
