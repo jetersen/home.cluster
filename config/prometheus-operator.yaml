@@ -1,3 +1,14 @@
+defaultRules:
+  rules:
+    # In a single node cluster resources will always be overcommited
+    kubernetesResources: false
+# RKE, cluster in docker is still experimental 😭
+    kubeScheduler: false
+kubelet:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+# End RKE 😭
 prometheus:
   prometheusSpec:
     retentionSize: 25GB
@@ -74,8 +85,6 @@ alertmanager:
       - alertmanager.jetersen.dev
       secretName: alertmanager.jetersen.dev-tls
   config:
-    global:
-      slack_api_url: nope
     route:
       group_by: ['alertname', 'service']
       group_wait: 30s
