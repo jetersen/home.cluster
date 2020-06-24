@@ -90,3 +90,21 @@
   systemd:
     state: restarted
     name: ssh
+
+# Does not play nice with docker/kubernetes
+- name: Disable systemd-resolved
+  systemd:
+    name: systemd-resolved
+    state: stopped
+    enabled: no
+
+- name: Fix DNS to local
+  copy:
+    dest: /etc/resolv.conf
+    owner: root
+    group: root
+    mode: '0644'
+    content: |
+      nameserver 192.168.1.1
+      nameserver 1.1.1.1
+      search lan.jetersen.dev
