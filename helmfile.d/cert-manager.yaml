@@ -10,12 +10,3 @@ releases:
   version: v0.15.1
   values:
   - ../config/cert-manager.yaml
-
-- name: acme
-  chart: ../charts/acme
-  namespace: cert-manager
-  wait: true
-  values:
-  - ../config/acme.yaml
-  secrets:
-  - ../secrets/config/acme.yaml

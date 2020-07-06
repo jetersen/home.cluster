@@ -1,0 +1,9 @@
+releases:
+- name: lets-encrypt-acme
+  chart: ../charts/lets-encrypt-acme
+  namespace: cert-manager
+  wait: true
+  values:
+  - ../config/lets-encrypt-acme.yaml
+  secrets:
+  - ../secrets/config/lets-encrypt-acme.yaml
