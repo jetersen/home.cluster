@@ -1,0 +1,25 @@
+environments:
+  default:
+    secrets:
+    - ../secrets/config/dex.yaml
+
+repositories:
+- name: wg-access-server
+  url: https://place1.github.io/wg-access-server
+releases:
+- name: wireguard
+  chart: wg-access-server/wg-access-server
+  namespace: wireguard
+  createNamespace: true
+  wait: true
+  version: 0.2.2
+  values:
+  - ../config/wireguard.yaml.gotmpl
+
+- name: wireguard-external
+  chart: ../charts/wireguard-external
+  namespace: wireguard
+  wait: true
+  values:
+  - hostname: wireguard.jetersen.dev
+    externalName: public-ingress.jetersen.dev
