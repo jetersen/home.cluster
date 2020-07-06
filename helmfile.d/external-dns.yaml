@@ -19,5 +19,3 @@ releases:
   wait: true
   values:
   - ../config/dyndns.yaml
-  secrets:
-  - ../secrets/config/dyndns.yaml
