@@ -1,0 +1,17 @@
+environments:
+  default:
+    secrets:
+    - ../secrets/config/dex.yaml
+
+repositories:
+- name: stable
+  url: https://kubernetes-charts.storage.googleapis.com
+releases:
+- name: dex
+  chart: stable/dex
+  namespace: dex
+  createNamespace: true
+  wait: true
+  version: 2.12.0
+  values:
+  - ../config/dex.yaml.gotmpl
