@@ -18,7 +18,6 @@ serviceUDP:
 
 dnsmasq:
   upstreamServers:
-  - server=/lan.jetersen.dev/192.168.1.1
-  customDnsEntries:
-  - address=/pi.hole/192.168.0.53
-  - address=/lan.jetersen.dev/192.168.1.1
+  - server=/router.lan.jetersen.dev/192.168.1.1
+  additionalHostsEntries:
+  - 192.168.0.53 pi.hole
