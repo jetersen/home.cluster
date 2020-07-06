@@ -2,7 +2,7 @@ repositories:
 - name: ingress-nginx
   url: https://kubernetes.github.io/ingress-nginx
 releases:
-- name: private-nginx-ingress
+- name: nginx-ingress
   chart: ingress-nginx/ingress-nginx
   namespace: nginx-ingress
   createNamespace: true
@@ -11,4 +11,4 @@ releases:
   timeout: 300
   atomic: true
   values:
-  - ../config/private-nginx-ingress.yaml
+  - ../config/nginx-ingress.yaml
