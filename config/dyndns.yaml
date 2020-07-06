@@ -1,0 +1,3 @@
+hostname: public-ingress.jetersen.dev
+annotations:
+  external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"

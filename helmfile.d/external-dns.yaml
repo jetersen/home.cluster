@@ -18,6 +18,6 @@ releases:
   namespace: external-dns
   wait: true
   values:
-  - hostname: public-ingress.jetersen.dev
+  - ../config/dyndns.yaml
   secrets:
   - ../secrets/config/dyndns.yaml
