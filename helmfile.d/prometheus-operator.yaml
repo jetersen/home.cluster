@@ -1,3 +1,8 @@
+environments:
+  default:
+    secrets:
+    - ../secrets/config/dex.yaml
+
 repositories:
 - name: stable
   url: https://kubernetes-charts.storage.googleapis.com
@@ -11,4 +16,4 @@ releases:
   timeout: 300
   atomic: true
   values:
-  - ../config/prometheus-operator.yaml
+  - ../config/prometheus-operator.yaml.gotmpl

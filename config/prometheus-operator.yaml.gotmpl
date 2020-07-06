@@ -68,6 +68,14 @@ grafana:
   grafana.ini:
     server:
       root_url: https://grafana.jetersen.dev
+    auth.generic_oauth:
+      enabled: "true"
+      client_id: {{ .Values.dexClients.grafana.id }}
+      client_secret: {{ .Values.dexClients.grafana.secret }}
+      scopes: openid profile email groups
+      auth_url: https://dex.jetersen.dev/dex/auth
+      token_url: https://dex.jetersen.dev/dex/token
+      allow_sign_up: true
   additionalDataSources:
   - name: loki
     access: proxy
