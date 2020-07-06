@@ -3,11 +3,12 @@ defaultRules:
     # In a single node cluster resources will always be overcommited
     kubernetesResources: false
 # RKE, cluster in docker is still experimental 😭
-    kubeScheduler: false
-kubelet:
-  enabled: false
-kubeControllerManager:
-  enabled: false
+    # kubeScheduler: false
+# kubelet:
+# Needs prometheusOperator.kubeletService.enabled false as well 🤯
+#   enabled: false
+# kubeControllerManager:
+#   enabled: false
 # End RKE 😭
 prometheus:
   prometheusSpec:
@@ -31,6 +32,10 @@ prometheus:
       - prometheus.jetersen.dev
       secretName: prometheus.jetersen.dev-tls
 prometheusOperator:
+  # kubeletService:
+# More RKE 😭
+    # enabled: false
+# End RKE 😭
   admissionWebhooks:
     enabled: false
   tlsProxy:

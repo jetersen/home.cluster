@@ -15,7 +15,10 @@ spec:
             command:
             - /bin/sh
             - -c
-            - IP=$(curl -s --show-error --fail https://api.ipify.org) && kubectl -n ${NAMESPACE} patch service dyndns-update -p '{"spec":{"type":"ExternalName","externalName":"'${IP}'"}}'
+            - |
+              set -ex
+              IP=$(curl -s --show-error --fail https://api.ipify.org)
+              kubectl -n ${NAMESPACE} patch service dyndns-update -p '{"spec":{"type":"ExternalName","externalName":"'${IP}'"}}'
             env:
               - name: NAMESPACE
                 valueFrom:

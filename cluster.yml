@@ -19,5 +19,8 @@ services:
   kubelet:
     extra_binds:
     - /var/openebs/local:/var/openebs/local
+    extra_args:
+      authentication-token-webhook: true
+      authorization-mode: Webhook
 
 kubernetes_version: v1.18.3-rancher2-2
