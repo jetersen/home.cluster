@@ -12,3 +12,7 @@ releases:
   atomic: true
   values:
   - ../config/openebs.yaml
+
+- name: storage-class
+  chart: ../charts/storage-class
+  wait: true

@@ -1,8 +1,8 @@
 provisioner:
   enabled: false
 snapshotOperator:
-  enabled: true
+  enabled: false
 analytics:
   enabled: false
 defaultStorageConfig:
-  enabled: true
+  enabled: false
