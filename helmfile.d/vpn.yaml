@@ -1,0 +1,8 @@
+releases:
+- name: vpn-external
+  chart: ../charts/vpn-external
+  namespace: external-dns
+  wait: true
+  values:
+  - hostname: vpn.jetersen.dev
+    externalName: public-ingress.jetersen.dev
