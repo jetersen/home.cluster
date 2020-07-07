@@ -16,6 +16,12 @@ dns:
   - 1.1.1.1
 
 services:
+  kube-api:
+    extra_args:
+      oidc-client-id: kubelogin
+      oidc-groups-claim: groups
+      oidc-issuer-url: https://dex.jetersen.dev/dex
+      oidc-username-claim: email
   kubelet:
     extra_binds:
     - /var/openebs/local:/var/openebs/local

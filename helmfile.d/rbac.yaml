@@ -1,0 +1,4 @@
+releases:
+- name: rbac
+  chart: ../charts/rbac
+  wait: true
