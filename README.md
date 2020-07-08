@@ -9,6 +9,12 @@ To spin up the cluster simple run:
 rke up
 ```
 
+## Tools used
+
+For helm charts I use a couple of tools to manage state and secrets.
+- [roboll/helmfile](https://github.com/roboll/helmfile) to describe what I have running in my cluster
+- [zendesk/helm-secrets](https://github.com/zendesk/helm-secrets) for secrets which uses [mozilla/sops](https://github.com/mozilla/sops) behind the scene.
+
 ## TODO
 
 - Manage more cluster state
