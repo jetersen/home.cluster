@@ -13,6 +13,8 @@ ingress:
     hosts:
     - pihole.lan.jetersen.dev
 
+virtualHost: pihole.lan.jetersen.dev
+
 persistentVolumeClaim:
   enabled: true
 
