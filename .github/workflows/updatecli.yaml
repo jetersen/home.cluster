@@ -7,7 +7,7 @@ on:
 
 jobs:
   update_cli:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -15,7 +15,7 @@ jobs:
         env:
           UPDATECLI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          curl --create-dirs -sSfL -o updatecli https://github.com/olblak/updatecli/releases/latest/download/updatecli.linux.amd64
+          curl -sSfL -o updatecli https://github.com/olblak/updatecli/releases/latest/download/updatecli.linux.amd64
           chmod +x ./updatecli
           ./updatecli diff --config ./updateCli/updateCli.d --values ./updateCli/values.yaml
           ./updatecli apply --config ./updateCli/updateCli.d --values ./updateCli/values.yaml
