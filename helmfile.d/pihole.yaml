@@ -1,16 +1,16 @@
 repositories:
-- name: pihole
-  url: https://mojo2600.github.io/pihole-kubernetes/
+  - name: pihole
+    url: https://mojo2600.github.io/pihole-kubernetes/
 releases:
-- name: pihole
-  chart: pihole/pihole
-  namespace: pihole
-  createNamespace: true
-  version: 1.7.14
-  wait: true
-  timeout: 300
-  atomic: true
-  values:
-  - ../config/pihole.yaml
-  secrets:
-  - ../secrets/config/pihole.yaml
+  - name: pihole
+    chart: pihole/pihole
+    namespace: pihole
+    createNamespace: true
+    version: 1.7.21
+    wait: true
+    timeout: 300
+    atomic: true
+    values:
+      - ../config/pihole.yaml
+    secrets:
+      - ../secrets/config/pihole.yaml
