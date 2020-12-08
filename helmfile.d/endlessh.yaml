@@ -1,0 +1,5 @@
+releases:
+- name: endlessh
+  chart: ../charts/endlessh
+  namespace: endlessh
+  wait: true

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endlessh
+  namespace: endlessh
+  labels:
+    app: endlessh
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endlessh
+  template:
+    metadata:
+      labels:
+        app: endlessh
+    spec:
+      containers:
+      - name: endlessh
+        image: harshavardhanj/endlessh:1.1
+        ports:
+        - containerPort: 2222

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: endlessh
+  namespace: endlessh
+spec:
+  externalTrafficPolicy: Local
+  selector:
+    app: endlessh
+  ports:
+  - protocol: TCP
+    port: 2222
+    targetPort: 2222
+  type: LoadBalancer
