@@ -1,40 +1,33 @@
 image:
-  tag: v5.1.2
-
+  tag: v5.2.1
 ingress:
   enabled: true
   annotations:
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
   hosts:
-  - pihole.lan.jetersen.dev
-  tls:
-  - secretName: pihole.lan.jetersen.dev-tls
-    hosts:
     - pihole.lan.jetersen.dev
-
+  tls:
+    - secretName: pihole.lan.jetersen.dev-tls
+      hosts:
+        - pihole.lan.jetersen.dev
 virtualHost: pihole.lan.jetersen.dev
-
 persistentVolumeClaim:
   enabled: true
-
 DNS1: "192.168.1.1"
 DNS2: "1.1.1.1"
-
 serviceTCP:
   loadBalancerIP: 192.168.0.53
   annotations:
     metallb.universe.tf/allow-shared-ip: pihole-svc
   type: LoadBalancer
-
 serviceUDP:
   loadBalancerIP: 192.168.0.53
   annotations:
     metallb.universe.tf/allow-shared-ip: pihole-svc
   type: LoadBalancer
-
 dnsmasq:
   upstreamServers:
-  - server=/router.lan.jetersen.dev/192.168.1.1
+    - server=/router.lan.jetersen.dev/192.168.1.1
   additionalHostsEntries:
-  - 192.168.0.53 pi.hole
+    - 192.168.0.53 pi.hole
