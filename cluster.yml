@@ -29,4 +29,4 @@ services:
       authentication-token-webhook: true
       authorization-mode: Webhook
 
-kubernetes_version: v1.18.3-rancher2-2
+kubernetes_version: v1.19.4-rancher1-1
