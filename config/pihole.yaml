@@ -14,8 +14,10 @@ ingress:
 virtualHost: pihole.lan.jetersen.dev
 persistentVolumeClaim:
   enabled: true
-DNS1: "192.168.1.1"
-DNS2: "1.1.1.1"
+doh:
+  enabled: true
+  envVars:
+    TUNNEL_DNS_UPSTREAM: "https://1.1.1.1/dns-query,https://1.0.0.1/dns-query"
 serviceTCP:
   loadBalancerIP: 192.168.0.53
   annotations:
@@ -28,6 +30,6 @@ serviceUDP:
   type: LoadBalancer
 dnsmasq:
   upstreamServers:
-    - server=/router.lan.jetersen.dev/192.168.1.1
+    - server=/router.jetersen.lan/192.168.1.1
   additionalHostsEntries:
     - 192.168.0.53 pi.hole
