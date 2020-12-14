@@ -1,19 +1,18 @@
 environments:
   default:
     secrets:
-    - ../secrets/config/dex.yaml
-
+      - ../secrets/config/dex.yaml
 repositories:
-- name: prometheus-community
-  url: https://prometheus-community.github.io/helm-charts
+  - name: prometheus-community
+    url: https://prometheus-community.github.io/helm-charts
 releases:
-- name: kube-prometheus-stack
-  chart: prometheus-community/kube-prometheus-stack
-  namespace: monitoring
-  createNamespace: true
-  version: 12.7.0
-  wait: true
-  timeout: 300
-  atomic: true
-  values:
-  - ../config/kube-prometheus-stack.yaml.gotmpl
+  - name: kube-prometheus-stack
+    chart: prometheus-community/kube-prometheus-stack
+    namespace: monitoring
+    createNamespace: true
+    version: 12.8.0
+    wait: true
+    timeout: 300
+    atomic: true
+    values:
+      - ../config/kube-prometheus-stack.yaml.gotmpl
