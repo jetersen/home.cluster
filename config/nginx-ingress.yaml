@@ -1,6 +1,8 @@
 controller:
   service:
     externalTrafficPolicy: Local
+  extraArgs:
+    update-status-on-shutdown: "false"
   config:
     ssl-protocols: "TLSv1.3"
     ssl_prefer_server_ciphers: 'off'
