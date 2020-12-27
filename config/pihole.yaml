@@ -18,16 +18,16 @@ doh:
   enabled: true
   envVars:
     TUNNEL_DNS_UPSTREAM: "https://1.1.1.1/dns-query,https://1.0.0.1/dns-query,https://[2606:4700:4700::1111]/dns-query,https://[2606:4700:4700::1001]/dns-query"
-serviceTCP:
+serviceWeb:
   loadBalancerIP: 192.168.0.53
+  type: LoadBalancer
   annotations:
     metallb.universe.tf/allow-shared-ip: pihole-svc
-  type: LoadBalancer
-serviceUDP:
+serviceDns:
   loadBalancerIP: 192.168.0.53
+  type: LoadBalancer
   annotations:
     metallb.universe.tf/allow-shared-ip: pihole-svc
-  type: LoadBalancer
 dnsmasq:
   upstreamServers:
     - server=/router.jetersen.lan/192.168.1.1
