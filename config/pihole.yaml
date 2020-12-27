@@ -30,6 +30,8 @@ serviceDns:
     metallb.universe.tf/allow-shared-ip: pihole-svc
 dnsmasq:
   upstreamServers:
-    - server=/router.jetersen.lan/192.168.1.1
+    - server=/jetersen.lan/192.168.1.1
+    - server=/1.168.192.in-addr.arpa/192.168.1.1
   additionalHostsEntries:
     - 192.168.0.53 pi.hole
+    - 192.168.1.1 router.jetersen.lan
