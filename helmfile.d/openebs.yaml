@@ -6,7 +6,7 @@ releases:
   chart: openebs/openebs
   namespace: openebs
   createNamespace: true
-  version: 1.11.1
+  version: 2.5.0
   wait: true
   timeout: 300
   atomic: true
