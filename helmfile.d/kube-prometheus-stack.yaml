@@ -10,7 +10,7 @@ releases:
     chart: prometheus-community/kube-prometheus-stack
     namespace: monitoring
     createNamespace: true
-    version: 12.12.1
+    version: 12.12.2
     wait: true
     timeout: 300
     atomic: true
