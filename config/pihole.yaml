@@ -1,6 +1,6 @@
 image:
   repository: pihole/pihole
-  tag: v5.2.2
+  tag: v5.5.1
 ingress:
   enabled: true
   annotations:
