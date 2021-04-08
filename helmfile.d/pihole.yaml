@@ -6,7 +6,7 @@ releases:
     chart: pihole/pihole
     namespace: pihole
     createNamespace: true
-    version: 1.8.29
+    version: 1.8.34
     wait: true
     timeout: 300
     atomic: true
