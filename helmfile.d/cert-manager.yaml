@@ -7,6 +7,6 @@ releases:
     namespace: cert-manager
     createNamespace: true
     wait: true
-    version: v1.1.0
+    version: v1.16.1
     values:
       - ../config/cert-manager.yaml
