@@ -6,7 +6,7 @@ releases:
     chart: ingress-nginx/ingress-nginx
     namespace: nginx-ingress-private
     createNamespace: true
-    version: 3.23.0
+    version: 4.11.3
     wait: true
     timeout: 300
     atomic: true
@@ -17,7 +17,7 @@ releases:
     chart: ingress-nginx/ingress-nginx
     namespace: nginx-ingress-public
     createNamespace: true
-    version: 3.23.0
+    version: 4.11.3
     wait: true
     timeout: 300
     atomic: true
